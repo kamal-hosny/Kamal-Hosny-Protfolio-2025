@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { FacebookIcon, GitBranch, Github, Linkedin, Twitter } from "lucide-react";
+import { FacebookIcon, Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
