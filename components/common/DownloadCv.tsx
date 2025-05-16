@@ -4,18 +4,10 @@ import { Button } from "@/components/ui/button";
 
 const DownloadCv = () => {
   const handleDownload = () => {
-    // Create a link element
     const link = document.createElement('a');
-    // Set the href to your CV file in the public directory
-    link.href = '/cv.pdf'; // Make sure to update this to match your actual CV filename
-    // Set the download attribute
-    link.download = 'Kamal-Hosny-CV.pdf';
-    // Append to body
-    document.body.appendChild(link);
-    // Trigger the download
+    link.href = '/pdf/Kamal-Hosny-CV.pdf';
+    link.download = 'cv.pdf';
     link.click();
-    // Clean up
-    document.body.removeChild(link);
   };
 
   return (
