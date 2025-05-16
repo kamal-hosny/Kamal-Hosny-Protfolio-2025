@@ -85,11 +85,7 @@ const MyAdvantages = () => {
               Why Choose Me?
             </span>
           } 
-          description={
-            <span className="animate-gradient bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto]">
-              I combine technical expertise with creative problem-solving to deliver exceptional web solutions that drive business growth and user satisfaction.
-            </span>
-          } 
+         
         />
 
         {/* Dynamic grid layout */}

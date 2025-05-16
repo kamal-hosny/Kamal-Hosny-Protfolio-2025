@@ -6,15 +6,17 @@ const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
   style: ['italic', 'normal']
-})
+});
+
+interface HighlightedWord {
+  word: string;
+  color: string;
+}
 
 interface MainTitleProps {
   title: ReactNode;
   description?: ReactNode;
-  highlightedWords?: {
-    word: string;
-    color: string;
-  }[];
+  highlightedWords?: HighlightedWord[];
 }
 
 // Fixed positions for the dots to prevent hydration mismatches
@@ -29,13 +31,36 @@ const dotPositions = [
 
 const MainTitle = ({ 
   title, 
-  description = "Crafting digital excellence through innovation, precision, and cutting-edge tech",
-  highlightedWords = [
-    { word: "innovation", color: "text-cyan-300" },
-    { word: "precision", color: "text-emerald-300" },
-    { word: "cutting-edge tech", color: "text-purple-300" }
-  ]
+  description,
+  highlightedWords = [],
 }: MainTitleProps) => {
+  // Process title to highlight specific words
+  const renderTitle = (): ReactNode => {
+    if (typeof title !== 'string' || !highlightedWords.length) {
+      return title;
+    }
+
+    let titleParts: ReactNode[] = [title];
+    highlightedWords.forEach(({ word, color }) => {
+      const newParts: ReactNode[] = [];
+      titleParts.forEach((part) => {
+        if (typeof part !== 'string') {
+          newParts.push(part);
+          return;
+        }
+        const splitParts = part.split(word).flatMap((segment, index, array) =>
+          index < array.length - 1
+            ? [segment, <span key={`${word}-${index}`} style={{ color }}>{word}</span>]
+            : [segment]
+        );
+        newParts.push(...splitParts);
+      });
+      titleParts = newParts;
+    });
+
+    return titleParts;
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -75,8 +100,8 @@ const MainTitle = ({
                    bg-clip-text text-transparent drop-shadow-2xl
                    hover:drop-shadow-[0_10px_30px_rgba(34_211_238_/_0.3)] transition-all"
       >
-        <span className="relative inline-block text-white">
-          {title}
+        <span className="relative inline-block">
+          {renderTitle()}
           <motion.span
             initial={{ width: 0 }}
             whileInView={{ width: '100%' }}
@@ -87,45 +112,30 @@ const MainTitle = ({
       </motion.h2>
 
       {/* Animated Description Card */}
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="inline-block relative group"
-      >
-        <div className="relative z-10 px-8 py-6 bg-black/50 backdrop-blur-lg
-                        rounded-2xl border border-cyan-500/20 
-                        hover:border-emerald-500/40 transition-colors">
-          <p className="text-gray-300/90 italic font-light 
-                       leading-relaxed max-w-3xl mx-auto">
-            {typeof description === 'string' ? (
-              description.split(' ').map((word, index) => {
-                const highlightedWord = highlightedWords.find(hw => 
-                  description.includes(hw.word) && 
-                  description.indexOf(hw.word) === description.indexOf(word)
-                );
-                
-                return highlightedWord ? (
-                  <span key={index} className={`font-semibold ${highlightedWord.color}`}>
-                    {word}{' '}
-                  </span>
-                ) : (
-                  <span key={index}>{word}{' '}</span>
-                );
-              })
-            ) : (
-              description
-            )}
-          </p>
-        </div>
+      {description && (
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="inline-block relative group"
+        >
+          <div className="relative z-10 px-8 py-6 bg-black/50 backdrop-blur-lg
+                          rounded-2xl border border-cyan-500/20 
+                          hover:border-emerald-500/40 transition-colors">
+            <p className="text-gray-300/90 italic font-light 
+                         leading-relaxed max-w-3xl mx-auto">
+              {description}
+            </p>
+          </div>
 
-        {/* Hover Glow Effect */}
-        <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-40 
-                       blur-2xl transition-opacity bg-gradient-to-r from-cyan-500/30 
-                       to-emerald-500/30"/>
-      </motion.div>
+          {/* Hover Glow Effect */}
+          <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-40 
+                         blur-2xl transition-opacity bg-gradient-to-r from-cyan-500/30 
+                         to-emerald-500/30"/>
+        </motion.div>
+      )}
     </motion.div>
-  )
-}
+  );
+};
 
-export default MainTitle
+export default MainTitle;

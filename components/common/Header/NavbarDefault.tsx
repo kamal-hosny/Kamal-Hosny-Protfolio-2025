@@ -1,8 +1,10 @@
+import DownloadCv from "../DownloadCv"
+
 const NavbarDefault = () => {
   return (
     <nav className="relative z-[1]">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-5">
+        <div className="flex justify-between items-center py-5 mx-6">
           <div>
             <h2 className="text-xl text-white font-semibold">Kamal.</h2>
           </div>
@@ -28,7 +30,9 @@ const NavbarDefault = () => {
                 Contact
               </a>
             </li>
+            <DownloadCv />
           </ul>
+     
         </div>
       </div>
     </nav>

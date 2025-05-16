@@ -13,7 +13,7 @@ const LandingPage = () => {
     <div className="relative min-h-screen w-full">
       <div className="container mx-auto px-4 py-12 md:py-24">
         {/* Main Content Container */}
-        <div className="flex flex-col-reverse md:flex-row items-center gap-10 justify-between w-full relative z-10">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-10 justify-around w-full relative z-10">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

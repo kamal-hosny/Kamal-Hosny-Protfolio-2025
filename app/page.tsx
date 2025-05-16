@@ -4,6 +4,7 @@ import LandingPage from "@/components/common/Home/LandingPage";
 import MyAdvantages from "@/components/common/Home/MyAdvantages";
 import MyTools from "@/components/common/Home/MyTools";
 import ProductsHeroParallax from "@/components/common/Home/ProductsHeroParallax";
+import WhatMyClientsSay from "@/components/common/Home/WhatMyClientsSay";
 
 
 
@@ -15,9 +16,10 @@ export default function Home() {
       <LandingPage />
       <MyTools />
 <ProductsHeroParallax />
-      <Banner />
-      <MyAdvantages />
 
+      <WhatMyClientsSay />
+      <MyAdvantages />
+      <Banner />
     </div>
   );
 }
