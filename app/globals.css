@@ -6,6 +6,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Add styles for wavy background */
+section canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -186,7 +194,7 @@
 @property --c-4 { syntax: '<color>'; inherits: false; initial-value: hsla(349, 0%, 0%, 1); }
 @property --x-4 { syntax: '<percentage>'; inherits: false; initial-value: 74%; }
 
-.landingPage.gradient-background {
+body {
     --x-0: 91%;
     --y-0: 90%;
     --c-0: hsla(97, 2%, 11%, 1);

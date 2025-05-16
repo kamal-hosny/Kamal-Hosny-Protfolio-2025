@@ -27,32 +27,34 @@ const NavbarFixed = () => {
     animate="animate"
     exit="exit"
     variants={navVariants}
-    className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-white bg-opacity-[.08] backdrop-blur-lg border border-white border-opacity-[.08]"
+    className="fixed z-[999] top-4 left-1/2 -translate-x-1/2"
     >
-
-    <ul className="flex items-center gap-2 text-sm font-medium text-white">
-        <li>
-            <a href="#" className="p-4 hover:opacity-50">
-                Home
-            </a>
-        </li>
-        <li>
-            <a href="#" className="p-4 hover:opacity-50">
-                Features
-            </a>
-        </li>
-        <li>
-            <a href="#" className="p-4 hover:opacity-50">
-                Pricing
-            </a>
-        </li>
-        <li>
-            <a href="#" className="p-4 hover:opacity-50">
-                Contact
-            </a>
-        </li>
-    </ul>
-
+      <div className="container mx-auto px-4">
+        <div className="rounded-full p-1 bg-white bg-opacity-[.08] backdrop-blur-lg border border-white border-opacity-[.08]">
+          <ul className="flex items-center gap-2 text-sm font-medium text-white">
+            <li>
+                <a href="#" className="p-4 hover:opacity-50">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="#" className="p-4 hover:opacity-50">
+                    Features
+                </a>
+            </li>
+            <li>
+                <a href="#" className="p-4 hover:opacity-50">
+                    Pricing
+                </a>
+            </li>
+            <li>
+                <a href="#" className="p-4 hover:opacity-50">
+                    Contact
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </motion.div>
   )
 }

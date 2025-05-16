@@ -13,10 +13,12 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.503.0",
-    "motion": "^12.9.4",
+    "motion": "^12.11.4",
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "simplex-noise": "^4.0.3",
+    "swiper": "^11.2.6",
     "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {
