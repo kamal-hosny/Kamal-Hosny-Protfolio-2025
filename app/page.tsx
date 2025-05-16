@@ -1,4 +1,3 @@
-import Footer from "@/components/common/Footer/Footer";
 import Header from "@/components/common/Header/Header";
 import Banner from "@/components/common/Home/Banner";
 import LandingPage from "@/components/common/Home/LandingPage";
