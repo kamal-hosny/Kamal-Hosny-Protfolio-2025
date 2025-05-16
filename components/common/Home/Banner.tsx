@@ -42,11 +42,11 @@ const Banner = () => {
         </div>
 
         <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-          Let's Build Something Amazing Together!
+          Let&apos;s Build Something Amazing Together!
         </h1>
         
         <p className="mt-6 text-lg leading-8 text-gray-300 animate-pulse">
-          Share your ideas and I'll get back to you within 24 hours
+          Share your ideas and I&apos;ll get back to you within 24 hours
         </p>
 
         <div className="mt-10 flex items-center justify-center gap-x-6">
