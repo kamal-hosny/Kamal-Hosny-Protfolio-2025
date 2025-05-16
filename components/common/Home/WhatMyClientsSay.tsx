@@ -75,7 +75,7 @@ const WhatMyClientsSay = () => {
                 <div className="text-cyan-400 text-xl mb-2 opacity-80">“</div>
 
                 {/* Testimonial Text */}
-                <p className="text-base text-gray-300 mb-4 leading-snug line-clamp-4">
+                <p className="text-base text-gray-300 mb-4 leading-snug h-16 line-clamp-4">
                   {testimonial.text}
                 </p>
 
