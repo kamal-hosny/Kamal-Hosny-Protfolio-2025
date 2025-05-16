@@ -220,9 +220,10 @@ body {
     animation: hero-gradient-animation 10s linear infinite alternate;
     background-blend-mode: normal, normal, normal, normal, normal;
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-x: hidden;
 }
 
