@@ -14,7 +14,7 @@ const tools = [
   },
   {
     name: "React",
-    icon: "/image/languages/React.svg",
+    icon: "/image/languages/react.svg",
   },
   {
     name: "TypeScript",
