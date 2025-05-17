@@ -8,37 +8,7 @@ import Image from 'next/image'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-
-const clientsTestimonials = [
-  {
-    name: "Kamal Hosny",
-    role: "CEO",
-    company: "Tech Innovators",
-    text: "Working with this team revolutionized our digital presence. Their attention to detail and creative solutions exceeded all our expectations.",
-    image: "https://avatars.githubusercontent.com/u/150514586?v=4",
-  },
-  {
-    name: "Ahmed Fares 🇵🇸",
-    role: "CTO",
-    company: "StartUp Hub",
-    text: "كنت اعاني من حساسيه الاختراق لاكن بعد تعلم السايبر سيكيورتي اصبحت احلى من قبل.",
-    image: "https://media.licdn.com/dms/image/v2/D4D35AQHpLQwYjcfBAg/profile-framedphoto-shrink_800_800/B4DZZzbaoYG4Ag-/0/1745693289372?e=1748005200&v=beta&t=uB-QsNnVzSBBhC1r7LZAQu-OmG1JSr-3WV02jJ5VF3s",
-  },
-  {
-    name: "كلاوي",
-    role: "Product Manager",
-    company: "Digital Solutions",
-    text: "Their technical expertise and communication skills are outstanding. We've seen got a significant boost in user engagement.",
-    image: "https://media.licdn.com/dms/image/v2/D4E35AQFeMUioT40caA/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1734778499641?e=1748005200&v=beta&t=aUTsDJrwkBPdPaHbetK5LoJE9_fBkdAieZ7cFJKq8_g",
-  },
-  {
-    name: "هاني زوكربيرغ",
-    role: "Founder",
-    company: "مؤسس سوا زبييس",
-    text: "The scalable architecture they implemented allowed us to grow seamlessly. Highly recommended!",
-    image: "https://sawa-space.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdikjox62g%2Fimage%2Fupload%2Fv1746642341%2Fimges%2Fdbbagno2kzq1iwuqhef8.jpg&w=1920&q=75",
-  },
-]
+import { clientsTestimonials } from '@/data/data'
 
 const WhatMyClientsSay = () => {
   return (
@@ -75,7 +45,7 @@ const WhatMyClientsSay = () => {
                 <div className="text-cyan-400 text-xl mb-2 opacity-80">“</div>
 
                 {/* Testimonial Text */}
-                <p className="text-base text-gray-300 mb-4 leading-snug h-16 line-clamp-4">
+                <p className="text-base text-gray-300 mb-4 text-center leading-snug line-clamp-4">
                   {testimonial.text}
                 </p>
 

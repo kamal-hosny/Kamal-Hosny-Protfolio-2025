@@ -134,3 +134,48 @@ export const socialLinks = [
     color: "hover:text-orange-400"
   }
 ]
+
+export const clientsTestimonials = [
+  {
+    name: "Ahmed Fares",
+    role: "Jr. Penetration Tester | Ethical Hacker | Bug Bounty Hunter | Full-Stack Laravel Developer",
+    company: "",
+    text: "الصراحه شغل عالي جداا ومش بس عشان احنا صحاب الصراحه الشغل بتاعك ياكمال نضيف ومترتب و كمان بيبقى عندك افكار كويسه بتضيفها الموقع ممكن تكون فريده مش  عند ناس كتير وده الاي مخليني شايفك مميز.",
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1747502863/WhatsApp_Image_2025-05-17_at_20.24.01_7e67cea0_iu8nu8.jpg",
+  },
+  {
+    name: "Youssef Samir",
+    role: "",
+    company: "",
+    text: "بجد كمال أنقذني، كان عندي مشكلة في الويب سايت وخلصه في وقت قياسي. محترف جدًا وشغله نضيف.",
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1744113485/defaultPerson_e7w75t.jpg",
+  },
+  {
+    name: "Sarah Khaled",
+    role: "",
+    company: "",
+    text: "Great communication and very responsive. He understood exactly what I wanted and delivered even better!",
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1744113485/defaultPerson_e7w75t.jpg",
+  },
+  {
+    name: "Hassan Adel",
+    role: "",
+    company: "",
+    text: "كنت متردد في الأول، بس بصراحة كمال عمللي موقع تحفة وسهل الاستخدام. شكراً يا بطل!",
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1744113485/defaultPerson_e7w75t.jpg",
+  },
+  {
+    name: "Nouran Magdy",
+    role: "",
+    company: "",
+    text: "The delivery was on time and everything worked perfectly. Definitely coming back for future work.",
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1744113485/defaultPerson_e7w75t.jpg",
+  },
+  {
+    name: "Mohamed Tarek",
+    role: "",
+    company: "",
+    text: "كمال فاهم هو بيعمل إيه، شغله مظبوط جدًا، وبيشرح كل حاجة ببساطة. أنصح أي حد يتعامل معاه.",
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1744113485/defaultPerson_e7w75t.jpg",
+  },
+]
