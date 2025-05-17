@@ -17,7 +17,7 @@ const MyProducts = () => {
         />
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 mt-20"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 mt-20 mx-2 "
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
