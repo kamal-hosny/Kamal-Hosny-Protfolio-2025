@@ -2,7 +2,7 @@
 
 import React from 'react'
 import MainTitle from '../MainTitle'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { FiGithub, FiEye } from 'react-icons/fi'
 import { projects } from '@/data/data'
