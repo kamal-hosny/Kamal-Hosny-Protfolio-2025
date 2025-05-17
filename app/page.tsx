@@ -9,7 +9,7 @@ import WhatMyClientsSay from "@/components/common/Home/WhatMyClientsSay";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full bg-background">
+    <div className="relative min-h-screen w-full bg-background overflow-x-hidden">
       <div />
       <Header />
       <LandingPage />
