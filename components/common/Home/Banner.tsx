@@ -1,40 +1,16 @@
 "use client";
+import { socialLinks } from '@/data/data';
 import React from 'react'
-import { FiExternalLink, FiGithub, FiLinkedin, FiMail } from "react-icons/fi"
-import { FaWhatsapp } from "react-icons/fa"
+import { FiExternalLink, FiMail } from 'react-icons/fi';
+
 
 const Banner = () => {
   // const googleFormLink = "https://forms.gle/your-google-form-link-here"
   
-  const socialLinks = [
-    {
-      name: "GitHub",
-      url: "https://github.com/kamal-hosny",
-      icon: <FiGithub />,
-      color: "hover:text-gray-400"
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/kamal-hosny-681068295/",
-      icon: <FiLinkedin />,
-      color: "hover:text-blue-400"
-    },
-    {
-      name: "WhatsApp",
-      url: "https://wa.me/+201013655708",
-      icon: <FaWhatsapp />,
-      color: "hover:text-green-400"
-    },
-    {
-      name: "Email",
-      url: "mailto:kamalixon.dev@gmail.com",
-      icon: <FiMail />,
-      color: "hover:text-orange-400"
-    }
-  ]
+  
 
   return (
-    <div className="relative isolate px-6 py-24 lg:px-8 bg-gradient-to-b from-black via-emerald-900 to-black">
+    <div id='contact' className="relative isolate px-6 py-24 lg:px-8 bg-gradient-to-b from-black via-emerald-900 to-black">
       <div className="mx-auto max-w-2xl text-center">
         <div className="inline-flex items-center gap-x-2 bg-white/5 px-4 py-2 rounded-full mb-6">
           <FiMail className="text-emerald-400 text-xl" />

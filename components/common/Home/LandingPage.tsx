@@ -3,14 +3,14 @@
 import DownloadCv from "@/components/common/DownloadCv";
 import { Button } from "@/components/ui/button";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
+import { socialLinks } from "@/data/data";
 import { motion } from "framer-motion";
-import { FacebookIcon, Github, Linkedin } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import React from "react";
 
 const LandingPage = () => {
   return (
-    <div className="relative min-h-screen w-full">
+    <div id="home" className="relative min-h-screen w-full">
       <div className="container mx-auto px-4 py-12 md:py-24">
         {/* Main Content Container */}
         <div className="flex flex-col-reverse md:flex-row items-center gap-10 justify-around w-full relative z-10">
@@ -19,7 +19,7 @@ const LandingPage = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="md:w-1/2 space-y-8"
+            className="md:w-1/2 space-y-8 text-center md:text-left"
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -33,7 +33,7 @@ const LandingPage = () => {
               </span>
             </motion.div>
 
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight flex items-center gap-3 flex-wrap">
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight flex items-center justify-center md:justify-start gap-3 flex-wrap">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
                 Fullstack Next.js Dev
               </span>
@@ -55,7 +55,7 @@ const LandingPage = () => {
               <span className="text-cyan-400"> scalable architectures</span>.
             </p>
 
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex gap-4 flex-wrap justify-center md:justify-start ">
               <Button
                 asChild
                 className=" bg-gradient-to-r cursor-pointer from-emerald-600 to-cyan-600 text-white px-8 py-6 rounded-xl hover:scale-105 transition-transform duration-300"
@@ -71,22 +71,20 @@ const LandingPage = () => {
         <DownloadCv />
             </div>
             {/* social media links */}
-            <div className="flex gap-4 flex-wrap">
-              <Link href="https://www.linkedin.com/in/kamal-hosny-681068295/">
-                <span className="text-emerald-400 transition-colors flex rounded justify-center items-center h-10 w-10  hover:bg-emerald-400 hover:text-white">
-                  <Linkedin />
-                </span>
-              </Link>
-              <Link href="https://www.facebook.com/profile.php?id=100076564117070">
-                <span className="text-emerald-400 transition-colors flex rounded justify-center items-center h-10 w-10  hover:bg-emerald-400 hover:text-white">
-                  <FacebookIcon />
-                </span>
-              </Link>
-              <Link href="https://github.com/kamal-hosny">
-                <span className="text-emerald-400 transition-colors flex rounded justify-center items-center h-10 w-10  hover:bg-emerald-400 hover:text-white">
-                  <Github />
-                </span>
-              </Link>
+            <div className="flex gap-4 flex-wrap justify-center md:justify-start ">
+            {socialLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-gray-300 ${link.color} transition-all duration-300 transform hover:scale-110`}
+              aria-label={link.name}
+            >
+              <span className="sr-only">{link.name}</span>
+              {React.cloneElement(link.icon, { className: "h-6 w-6" })}
+            </a>
+          ))}
             </div>
           </motion.div>
 

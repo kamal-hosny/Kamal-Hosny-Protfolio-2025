@@ -1,33 +1,29 @@
 "use client"
-import { AnimatePresence } from 'motion/react';
-import React, { useEffect, useState } from 'react'
-import NavbarFixed from './NavbarFixed';
-import NavbarDefault from './NavbarDefault';
+import { AnimatePresence } from 'framer-motion'
+import NavbarFixed from './NavbarFixed'
+import NavbarDefault from './NavbarDefault'
+import MobileMenu from './MobileMenu'
+import { useEffect, useState, useCallback } from 'react'
 
 const Navbar = () => {
-  const [isScrollPast, setIsScrollPast] = useState<boolean>(false);
+  const [isScrollPast, setIsScrollPast] = useState(false)
 
-  const handleScroll = () => {
-    if(window.screenY >= 400) {
-      setIsScrollPast(true)
-      console.log("Scrolled Past");
-    } else {
-      setIsScrollPast(false)
-      console.log("Not Past");
-    }
-  };
+  const handleScroll = useCallback(() => {
+    setIsScrollPast(window.scrollY >= 400)
+  }, [])
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
 
   return (
     <>
-      <AnimatePresence>
-        {isScrollPast ? (<NavbarFixed />) : (<NavbarDefault />)}
+      <AnimatePresence mode="wait">
+        {isScrollPast ? <NavbarFixed key="fixed" /> : <NavbarDefault key="default" />}
       </AnimatePresence>
+      
+      <MobileMenu />
     </>
   )
 }

@@ -42,7 +42,7 @@ const clientsTestimonials = [
 
 const WhatMyClientsSay = () => {
   return (
-    <section className="relative py-16 bg-gradient-to-b from-blue-950 to-black overflow-hidden">
+    <section id='client' className="relative py-16 bg-gradient-to-b from-blue-950 to-black overflow-hidden">
       <div className="container mx-auto px-6 relative z-10 ">
         <MainTitle 
           title={

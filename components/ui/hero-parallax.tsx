@@ -142,7 +142,7 @@ export const ProductCard = ({
       className="group/product h-96 w-[30rem] relative shrink-0"
     >
       <a
-        href={product.id}
+        href={`#project-${product.id}`}
         className="block group-hover/product:shadow-2xl "
       >
         <Image
