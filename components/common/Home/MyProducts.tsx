@@ -1,13 +1,20 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MainTitle from '../MainTitle'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { FiGithub, FiEye } from 'react-icons/fi'
 import { projects } from '@/data/data'
 
+
 const MyProducts = () => {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
   return (
     <section id='projects' className="relative py-28 bg-gradient-to-b from-black via-blue-950/80  to-black overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
@@ -150,30 +157,32 @@ const MyProducts = () => {
         />
       </div>
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 -z-10 opacity-20">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
-            initial={{
-              x: Math.random() * 100 + '%',
-              y: Math.random() * 100 + '%',
-              opacity: 0
-            }}
-            animate={{
-              y: [0, -100],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 5 + 5,
-              repeat: Infinity,
-              ease: 'linear',
-              delay: Math.random() * 5
-            }}
-          />
-        ))}
-      </div>
+      {/* Floating Particles - Client-side only */}
+      {isMounted && (
+        <div className="absolute inset-0 -z-10 opacity-20">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
+              initial={{
+                x: Math.random() * 100 + '%',
+                y: Math.random() * 100 + '%',
+                opacity: 0
+              }}
+              animate={{
+                y: [0, -100],
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: Math.random() * 5 + 5,
+                repeat: Infinity,
+                ease: 'linear',
+                delay: Math.random() * 5
+              }}
+            />
+          ))}
+        </div>
+      )}
     </section>
   )
 }

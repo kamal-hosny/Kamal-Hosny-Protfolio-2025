@@ -17,15 +17,11 @@ export const metadata: Metadata = {
   title: "Kamal Hosny",
   description: "Portfolio website of Kamal Hosny - Full Stack Developer",
   icons: {
-    icon: [
-      { url: '/logo.png', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/logo.png', type: 'image/png' },
-    ],
-    shortcut: ['/logo.png'],
+    icon: "/favicon.ico", // or "/logo.png"
+    apple: "/favicon.ico", // or "/logo.png"
+    shortcut: "/favicon.ico", // or "/logo.png"
   },
-  manifest: '/site.webmanifest',
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
