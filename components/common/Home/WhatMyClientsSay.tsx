@@ -43,7 +43,7 @@ const clientsTestimonials = [
 const WhatMyClientsSay = () => {
   return (
     <section className="relative py-16 bg-gradient-to-b from-blue-950 to-black overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 ">
         <MainTitle 
           title={
             <span className="text-white">
@@ -66,7 +66,7 @@ const WhatMyClientsSay = () => {
             nextEl: '.testimonial-next',
             prevEl: '.testimonial-prev',
           }}
-          className="!pb-12 !pt-8"
+          className="!pb-12 !pt-8 "
         >
           {clientsTestimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
