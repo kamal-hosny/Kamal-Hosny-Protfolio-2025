@@ -1,6 +1,10 @@
 import {  FiGithub, FiLinkedin, FiMail } from "react-icons/fi"
 import { FaWhatsapp } from "react-icons/fa"
 
+
+const generateId = () => crypto.randomUUID();
+
+
 const projectIds = [
   '59653f53-0371-4ede-a2ca-6a3fbcc49246',
   'b8941c88-96c8-422d-9be9-d9253a24d19f',
@@ -25,17 +29,58 @@ interface Project {
 
 export const projects: Project[] = [
   {
-    id: projectIds[0],
+    id: generateId(),
+    title: "TechTrove Store",
+    description: "A modern tech e-commerce platform for selling PC and console parts. It features product listings by brand and category, smart inventory tracking, order management, and a dashboard for handling customer inquiries.",
+    tech: ["Next.js"],
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1752659248/dd655f24-6f12-413d-ae74-f59794f4607f_2_jcwbjg.png",
+    githubLink: "https://github.com/kamal-hosny/",
+    liveLink: "https://tech-trove-ebon.vercel.app/",
+    featured: true
+  },
+  {
+    id: generateId(),
+    title: "ANKH.",
+    description: "A platform for showcasing call center services, featuring agent selection, data record management, and a custom plan builder with a complete purchase flow and email confirmations for both client and business.",
+    tech: ["Next.js"],
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1752658924/93cfc857-0970-43a7-827a-81f555d63ee8_dycgga.png",
+    githubLink: "https://github.com/kamal-hosny/",
+    liveLink: "https://ankh-sooty.vercel.app/",
+    featured: true
+  },
+  {
+    id: generateId(),
+    title: "Mabani",
+    description: "A professional client project developed for a leading construction and development company in Saudi Arabia. The platform showcases completed buildings, residential towers, and interior design projects, emphasizing quality and craftsmanship. It also highlights official certifications and includes an integrated contact system for initiating new collaborations and project inquiries.",
+    tech: ["Next.js"],
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1752658587/9ce384d8-a6e3-4b62-a686-7ca80962d1c9_hlwoye.png",
+    githubLink: "https://github.com/kamal-hosny/",
+    liveLink: "https://mabanialtatweer.com/",
+    featured: true
+  },
+
+
+
+
+  {
+    id: generateId(),
     title: "Aqarek",
     description: "A full-stack e-commerce platform for real estate, enabling property browsing, purchasing, and management.",
     tech: ["React", "TypeScript", "Tailwind"],
     image: "https://res.cloudinary.com/dizj9rluo/image/upload/f_auto,q_auto/aac2088f-0a80-4b29-bff4-2ab873405c48_2_tnvuxl",
-    githubLink: "https://github.com/kamal-hosny/Real-estate-graduation-project",
-    liveLink: "https://real-estate-graduation-project.vercel.app/",
+    githubLink: "https://github.com/kamal-hosny/Blink",
+    liveLink: "https://blink-puce.vercel.app/",
     featured: true
   },
+
+
+
+
+
+
+
   {
-    id: projectIds[1],
+    id: generateId(),
     title: "OilfieldTools",
     description: "A full-stack e-commerce platform for oilfield equipment, offering product listings and secure transactions.",
     tech: ["React", "TypeScript", "Tailwind"],
@@ -45,17 +90,47 @@ export const projects: Project[] = [
     featured: true
   },
   {
-    id: projectIds[2],
-    title: "Arcane",
-    description: "A modern web application with animations, built to showcase dynamic UI/UX design.",
-    tech: ["Next.js", "JavaScript", "Tailwind", "GSAP"],
-    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1747439605/sqougsmuhtqj0to8r5jw.png",
-    githubLink: "https://github.com/kamal-hosny/Arcane",
-    liveLink: "https://arcane-silk.vercel.app/",
-    featured: false
+    id: generateId(),
+    title: "Bulm Store",
+    description: "A sleek and responsive e-commerce platform for premium kitchen appliances, offering a seamless browsing and purchasing experience with elegant design and intuitive UI.",
+    tech: ["React", "TypeScript", "Tailwind"],
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/3f919001-f3bc-4dc3-b998-47b53b866220_2_zxrmqv.png",
+    githubLink: "https://github.com/kamal-hosny/Cookers-e-commerce-F-",
+    liveLink: "https://cookers-e-commerce-f.vercel.app/",
+    featured: true
   },
+
   {
-    id: projectIds[3],
+    id: generateId(),
+    title: "Blink",
+    description: "Build Scape is your go-to platform for innovative architectural design and construction solutions.",
+    tech: ["React"],
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1752657965/13addd1e-be1f-431f-a84b-3650332369f8_zjr0tz.png",
+    githubLink: "https://github.com/kamal-hosny/OilfieldTools-ecommerce",
+    liveLink: "https://oilfield-tools-ecommerce.vercel.app/",
+    featured: true
+  },
+
+  {
+    id: generateId(),
+    title: "Build Scape",
+    description: "Build Scape is your go-to platform for innovative architectural design and construction solutions.",
+    tech: ["React", "Tailwind"],
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1752658227/4b4ad30b-67f8-4dd9-8007-f06fac3e3ffe_hyc0fb.png",
+    githubLink: "https://github.com/kamal-hosny",
+    liveLink: "https://blackllne.web.app/",
+    featured: true
+  },
+
+
+
+
+
+
+
+
+  {
+    id: generateId(),
     title: "Ventry Code Portfolio",
     description: "A personal portfolio showcasing projects with smooth animations and modern design.",
     tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
@@ -65,7 +140,17 @@ export const projects: Project[] = [
     featured: false
   },
   {
-    id: projectIds[4],
+    id: generateId(),
+    title: "Arcane",
+    description: "A modern web application with animations, built to showcase dynamic UI/UX design.",
+    tech: ["Next.js", "JavaScript", "Tailwind", "GSAP"],
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1747439605/sqougsmuhtqj0to8r5jw.png",
+    githubLink: "https://github.com/kamal-hosny/Arcane",
+    liveLink: "https://arcane-silk.vercel.app/",
+    featured: false
+  },
+  {
+    id: generateId(),
     title: "Donezo-Todo",
     description: "A full-stack todo application with database integration for task management.",
     tech: ["Next.js", "TypeScript", "Tailwind", "Prisma", "MongoDB"],
@@ -74,18 +159,18 @@ export const projects: Project[] = [
     liveLink: "https://ventry-code-portfolio.vercel.app/",
     featured: true
   },
+  // {
+  //   id: generateId(),
+  //   title: "حضانة بداية خطوة",
+  //   description: "A website for a nursery, providing information about services and enrollment.",
+  //   tech: ["React", "Tailwind"],
+  //   image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1747441041/fdde3ed2-0bf3-42c3-8001-cbdf44c845bb_ufsijr.png",
+  //   githubLink: null,
+  //   liveLink: "https://client-first-step.vercel.app/",
+  //   featured: false
+  // },
   {
-    id: projectIds[5],
-    title: "حضانة بداية خطوة",
-    description: "A website for a nursery, providing information about services and enrollment.",
-    tech: ["React", "Tailwind"],
-    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1747441041/fdde3ed2-0bf3-42c3-8001-cbdf44c845bb_ufsijr.png",
-    githubLink: null,
-    liveLink: "https://client-first-step.vercel.app/",
-    featured: false
-  },
-  {
-    id: projectIds[6],
+    id: generateId(),
     title: "Dashboard",
     description: "A responsive admin dashboard for data visualization and management.",
     tech: ["React", "Tailwind"],
@@ -95,7 +180,7 @@ export const projects: Project[] = [
     featured: false
   },
   {
-    id: projectIds[7],
+    id: generateId(),
     title: "Portfolio Graphic Design",
     description: "A portfolio showcasing graphic design projects with a clean and minimal UI.",
     tech: ["React"],
