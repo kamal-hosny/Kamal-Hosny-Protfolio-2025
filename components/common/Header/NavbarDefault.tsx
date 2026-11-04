@@ -1,6 +1,7 @@
 import { FiMenu } from "react-icons/fi"
 import { useNavContext } from "../../../context/NavContext"
 import DownloadCv from "../DownloadCv"
+import BrandLogo from "./BrandLogo"
 
 const NavbarDefault = () => {
   const { openMobileMenu } = useNavContext()
@@ -18,9 +19,7 @@ const NavbarDefault = () => {
         <div className="flex justify-between items-center py-6">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h2 className="text-2xl font-bold  text-[#e4e4e7] bg-gradient-to-r  from-primary-400 to-primary-600 bg-clip-text">
-              Kamal.
-            </h2>
+            <BrandLogo />
           </div>
 
           {/* Desktop Navigation */}

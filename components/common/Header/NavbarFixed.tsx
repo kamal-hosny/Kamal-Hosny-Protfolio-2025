@@ -1,6 +1,7 @@
 import { useNavContext } from "@/context/NavContext"
 import { motion } from "framer-motion"
 import { FiMenu } from "react-icons/fi"
+import BrandLogo from "./BrandLogo"
 
 const navVariants = {
   initial: { y: -50, opacity: 0 },
@@ -38,9 +39,7 @@ const NavbarFixed = () => {
           <div className="flex justify-between items-center p-2">
             {/* Logo */}
             <div className="pl-4">
-              <span className="text-lg font-bold  text-white bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text">
-                Kamal.
-              </span>
+              <BrandLogo />
             </div>
             <button 
             className="md:hidden p-2 cursor-auto text-gray-300 hover:text-primary-400 transition-colors"

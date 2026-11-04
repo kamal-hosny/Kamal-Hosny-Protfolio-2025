@@ -1,24 +1,23 @@
-import Header from "@/components/common/Header/Header";
-import Banner from "@/components/common/Home/Banner";
-import LandingPage from "@/components/common/Home/LandingPage";
-import MyAdvantages from "@/components/common/Home/MyAdvantages";
-import MyProducts from "@/components/common/Home/MyProducts";
-import MyTools from "@/components/common/Home/MyTools";
-import ProductsHeroParallax from "@/components/common/Home/ProductsHeroParallax";
-import WhatMyClientsSay from "@/components/common/Home/WhatMyClientsSay";
+import About from "@/components/common/Portfolio/About";
+import Contact from "@/components/common/Portfolio/Contact";
+import Expertise from "@/components/common/Portfolio/Expertise";
+import Hero from "@/components/common/Portfolio/Hero";
+import PortfolioNav from "@/components/common/Portfolio/PortfolioNav";
+import Projects from "@/components/common/Portfolio/Projects";
+import Testimonials from "@/components/common/Portfolio/Testimonials";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full bg-background overflow-x-hidden">
-      <div />
-      <Header />
-      <LandingPage />
-      <MyTools />
-      <ProductsHeroParallax />
-      <MyProducts />
-      <WhatMyClientsSay />
-      <MyAdvantages />
-      <Banner />
+    <div className="min-h-screen overflow-clip">
+      <PortfolioNav />
+      <main>
+        <Hero />
+        <Projects />
+        <Expertise />
+        <About />
+        <Testimonials />
+        <Contact />
+      </main>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiX } from 'react-icons/fi'
 import DownloadCv from '../DownloadCv'
 import { useNavContext } from '@/context/NavContext'
+import BrandLogo from './BrandLogo'
 
 const navItems = [
     { id: 'home', name: 'Home' },
@@ -26,7 +27,7 @@ const MobileMenu = () => {
         >
           <div className="flex flex-col h-full p-6">
             <div className="flex justify-between items-center mb-12 mx-6 md:mx-2">
-              <span className="text-2xl font-bold text-white">Kamal.</span>
+              <BrandLogo />
               <button 
                 onClick={closeMobileMenu}
                 className="p-2 text-gray-300 hover:text-primary-400"

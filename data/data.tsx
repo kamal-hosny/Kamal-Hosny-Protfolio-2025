@@ -33,7 +33,7 @@ export const projects: Project[] = [
     title: "TechTrove Store",
     description: "A modern tech e-commerce platform for selling PC and console parts. It features product listings by brand and category, smart inventory tracking, order management, and a dashboard for handling customer inquiries.",
     tech: ["Next.js"],
-    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1752659248/dd655f24-6f12-413d-ae74-f59794f4607f_2_jcwbjg.png",
+    image: "https://res.cloudinary.com/dizj9rluo/image/upload/v1793828104/screencapture-de-hash-url-shortener-vercel-app-2026-11-04-23_34_27_etfzkv.png",
     githubLink: "https://github.com/kamal-hosny/",
     liveLink: "https://tech-trove-ebon.vercel.app/",
     featured: true
