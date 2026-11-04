@@ -1,12 +1,107 @@
 import Image from "next/image";
-import { ArrowUpRight, ChevronDown, Github } from "lucide-react";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  Github,
+  FileText,
+  ExternalLink,
+  ChartNoAxesCombined,
+  ShieldCheck,
+  Zap,
+  CreditCard,
+  QrCode,
+  Database,
+  Cpu,
+  Layers,
+  Lock,
+  Server,
+  Sparkles,
+  LucideIcon,
+} from "lucide-react";
 import { projects } from "@/data/data";
 
-function ProjectLinks({ githubLink, liveLink }: { githubLink: string | null; liveLink: string | null }) {
+const HIGHLIGHT_ICONS: Record<string, LucideIcon> = {
+  "chart-no-axes-combined": ChartNoAxesCombined,
+  chartnoaxescombined: ChartNoAxesCombined,
+  "shield-check": ShieldCheck,
+  shieldcheck: ShieldCheck,
+  zap: Zap,
+  "credit-card": CreditCard,
+  creditcard: CreditCard,
+  "qr-code": QrCode,
+  qrcode: QrCode,
+  database: Database,
+  cpu: Cpu,
+  layers: Layers,
+  lock: Lock,
+  server: Server,
+  sparkles: Sparkles,
+};
+
+function getHighlightIcon(name?: string): LucideIcon | null {
+  if (!name) return null;
+  const key = name.toLowerCase().trim();
+  if (HIGHLIGHT_ICONS[key]) return HIGHLIGHT_ICONS[key];
+  const stripped = key.replace(/[-_]/g, "");
+  if (HIGHLIGHT_ICONS[stripped]) return HIGHLIGHT_ICONS[stripped];
+  return Sparkles;
+}
+
+function ProjectLinks({
+  githubLink,
+  liveLink,
+  caseStudyUrl,
+  referenceLink,
+  referenceLinkLabel,
+}: {
+  githubLink?: string | null;
+  liveLink?: string | null;
+  caseStudyUrl?: string | null;
+  referenceLink?: string | null;
+  referenceLinkLabel?: string | null;
+}) {
   return (
-    <div className="flex items-start gap-[14px] [&_svg]:size-4">
-      {liveLink && <a className="inline-flex items-center gap-[6px] text-[11px] text-[#9299a5] transition-colors hover:text-[#c7f36b]" href={liveLink} target="_blank" rel="noreferrer">Live site <ArrowUpRight /></a>}
-      {githubLink && <a className="inline-flex items-center gap-[6px] text-[11px] text-[#9299a5] transition-colors hover:text-[#c7f36b]" href={githubLink} target="_blank" rel="noreferrer"><Github /> Source</a>}
+    <div className="flex flex-wrap items-center gap-[14px] [&_svg]:size-4">
+      {liveLink && (
+        <a
+          className="inline-flex items-center gap-[6px] text-[11px] text-[#9299a5] transition-colors hover:text-[#c7f36b]"
+          href={liveLink}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Live site <ArrowUpRight />
+        </a>
+      )}
+      {githubLink && (
+        <a
+          className="inline-flex items-center gap-[6px] text-[11px] text-[#9299a5] transition-colors hover:text-[#c7f36b]"
+          href={githubLink}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Github /> Source
+        </a>
+      )}
+      {caseStudyUrl && (
+        <a
+          className="inline-flex items-center gap-[6px] text-[11px] text-[#9299a5] transition-colors hover:text-[#c7f36b]"
+          href={caseStudyUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FileText /> Case study
+        </a>
+      )}
+      {referenceLink && (
+        <a
+          className="inline-flex items-center gap-[6px] text-[11px] text-[#9299a5] transition-colors hover:text-[#c7f36b]"
+          href={referenceLink}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <ExternalLink /> {referenceLinkLabel || "Reference"}
+        </a>
+      )}
     </div>
   );
 }
@@ -26,28 +121,133 @@ export default function Projects() {
           <p className="m-0 max-w-[480px] text-sm leading-[1.8] text-[#9299a5] max-[700px]:text-[13px]">Real products and experiments, designed and developed with a focus on clarity, usability, and thoughtful engineering.</p>
         </div>
         <div className="grid grid-cols-2 gap-x-6 gap-y-11 max-[700px]:grid-cols-1 max-[700px]:gap-y-[34px]">
-          {featuredProjects.map((project, index) => (
-            <article className={`group min-w-0 ${index === 0 ? "col-span-full grid grid-cols-[minmax(0,1.2fr)_minmax(300px,.8fr)] items-center gap-7 border-b border-white/[0.08] pb-[30px] max-[700px]:col-auto max-[700px]:grid-cols-1 max-[700px]:gap-0 max-[700px]:border-b-0 max-[700px]:pb-0" : ""}`} key={project.title}>
-              <a className="relative block aspect-[1.62] overflow-hidden border border-white/[0.08] bg-[#141820] after:absolute after:inset-[45%_0_0] after:bg-[linear-gradient(transparent,rgba(9,11,14,.38))] after:content-['']" href={project.liveLink ?? project.githubLink ?? "#projects"} target={project.liveLink || project.githubLink ? "_blank" : undefined} rel="noreferrer" aria-label={`View ${project.title}`}>
-                <Image src={project.image} alt={`${project.title} project screenshot`} fill priority={index < 2} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 570px" className="object-cover transition-transform duration-500 group-hover:scale-[1.035]" />
-                <span className="absolute top-[14px] left-[14px] z-[1] border border-white/[0.08] bg-[#090b0e]/[0.86] px-[9px] py-[7px] font-[family-name:var(--font-jetbrains-mono)] text-[10px] text-[#c7f36b]">0{index + 1}</span>
-                <span className="absolute right-4 bottom-4 z-[1] grid size-[42px] place-items-center border border-white/30 bg-[#090b0e]/[0.76] text-[#f3f4f6] transition duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-[#c7f36b] group-hover:text-[#090b0e] [&_svg]:size-[18px]" aria-hidden="true"><ArrowUpRight /></span>
-              </a>
-              <div className={`grid gap-[15px] pt-5 ${index === 0 ? "max-[700px]:pt-5" : ""}`}>
-                <div className="flex items-start justify-between gap-[18px] max-[700px]:flex-col max-[700px]:gap-[10px]">
-                  <h3 className="m-0 font-[family-name:var(--font-space-grotesk)] text-[23px] font-semibold">{project.title}</h3>
-                  <ProjectLinks githubLink={project.githubLink} liveLink={project.liveLink} />
-                </div>
-                <p className="m-0 max-w-[620px] text-[13px] leading-[1.8] text-[#9299a5]">{project.description}</p>
-                <div className="flex flex-wrap items-baseline gap-x-[14px] gap-y-[10px] border-t border-white/[0.08] pt-[14px]">
-                  <span className="font-[family-name:var(--font-jetbrains-mono)] text-[9px] uppercase text-[#c7f36b]">Built with</span>
-                  <div className="flex flex-wrap gap-[7px]" aria-label={`Technologies used for ${project.title}`}>
-                    {project.tech.map((technology) => <span className="border border-[#c7f36b]/[0.22] bg-[#c7f36b]/[0.055] px-[9px] py-[6px] font-[family-name:var(--font-jetbrains-mono)] text-[10px] text-[#d7e8b3]" key={technology}>{technology}</span>)}
+          {featuredProjects.map((project, index) => {
+            const imageSrc = project.coverImage || project.image || "";
+            const liveUrl = project.liveUrl ?? project.liveLink;
+            const githubUrl = project.githubUrl ?? project.githubLink;
+            const technologies = project.technologies ?? project.tech ?? [];
+            const projectNumber = project.projectNumber ?? `0${index + 1}`;
+            const primaryUrl = liveUrl ?? githubUrl ?? project.caseStudyUrl ?? project.referenceLink ?? "#projects";
+
+            return (
+              <article
+                className={`group min-w-0 ${
+                  index === 0
+                    ? "col-span-full grid grid-cols-[minmax(0,1.2fr)_minmax(300px,.8fr)] items-center gap-7 border-b border-white/[0.08] pb-[30px] max-[700px]:col-auto max-[700px]:grid-cols-1 max-[700px]:gap-0 max-[700px]:border-b-0 max-[700px]:pb-0"
+                    : ""
+                }`}
+                key={project.id || project.title}
+              >
+                <a
+                  className="relative block aspect-[1.62] overflow-hidden border border-white/[0.08] bg-[#141820] after:absolute after:inset-[45%_0_0] after:bg-[linear-gradient(transparent,rgba(9,11,14,.38))] after:content-['']"
+                  href={primaryUrl}
+                  target={primaryUrl !== "#projects" ? "_blank" : undefined}
+                  rel="noreferrer"
+                  aria-label={`View ${project.title}`}
+                >
+                  {imageSrc && (
+                    <Image
+                      src={imageSrc}
+                      alt={`${project.title} project screenshot`}
+                      fill
+                      priority={index < 2}
+                      sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 570px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+                    />
+                  )}
+                  <span className="absolute top-[14px] left-[14px] z-[1] border border-white/[0.08] bg-[#090b0e]/[0.86] px-[9px] py-[7px] font-[family-name:var(--font-jetbrains-mono)] text-[10px] text-[#c7f36b]">
+                    {projectNumber}
+                  </span>
+                  <span
+                    className="absolute right-4 bottom-4 z-[1] grid size-[42px] place-items-center border border-white/30 bg-[#090b0e]/[0.76] text-[#f3f4f6] transition duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-[#c7f36b] group-hover:text-[#090b0e] [&_svg]:size-[18px]"
+                    aria-hidden="true"
+                  >
+                    <ArrowUpRight />
+                  </span>
+                </a>
+                <div className={`grid gap-[15px] pt-5 ${index === 0 ? "max-[700px]:pt-5" : ""}`}>
+                  {(project.projectLabel || project.projectType) && (
+                    <div className="flex flex-wrap items-center gap-2 font-[family-name:var(--font-jetbrains-mono)] text-[10px] uppercase tracking-wider text-[#c7f36b]">
+                      {project.projectLabel && <span>{project.projectLabel}</span>}
+                      {project.projectLabel && project.projectType && <span className="text-white/25">/</span>}
+                      {project.projectType && <span className="text-[#9299a5]">{project.projectType}</span>}
+                    </div>
+                  )}
+                  <div className="flex items-start justify-between gap-[18px] max-[700px]:flex-col max-[700px]:gap-[10px]">
+                    <div>
+                      <h3 className="m-0 font-[family-name:var(--font-space-grotesk)] text-[23px] font-semibold">
+                        {project.title}
+                      </h3>
+                      {project.subtitle && (
+                        <p className="mt-1 m-0 font-[family-name:var(--font-space-grotesk)] text-[13px] text-[#f3f4f6]/85">
+                          {project.subtitle}
+                        </p>
+                      )}
+                    </div>
+                    <ProjectLinks
+                      githubLink={githubUrl}
+                      liveLink={liveUrl}
+                      caseStudyUrl={project.caseStudyUrl}
+                      referenceLink={project.referenceLink}
+                      referenceLinkLabel={project.referenceLinkLabel}
+                    />
                   </div>
+                  <p className="m-0 max-w-[620px] text-[13px] leading-[1.8] text-[#9299a5]">
+                    {project.description}
+                  </p>
+                  {project.highlights && project.highlights.length > 0 && (
+                    <div className="border-t border-white/[0.08] pt-[14px]">
+                      {project.highlightsTitle && (
+                        <span className="mb-2.5 block font-[family-name:var(--font-jetbrains-mono)] text-[9px] uppercase text-[#c7f36b]">
+                          {project.highlightsTitle}
+                        </span>
+                      )}
+                      <div className={`grid gap-2 ${project.highlights.length > 1 ? "grid-cols-2 max-[500px]:grid-cols-1" : "grid-cols-1"}`}>
+                        {project.highlights.map((highlight, hIdx) => {
+                          const Icon = getHighlightIcon(highlight.icon);
+                          return (
+                            <div
+                              key={highlight.title || hIdx}
+                              className="border border-white/[0.06] bg-white/[0.02] p-2.5"
+                            >
+                              <div className="flex items-center gap-2">
+                                {Icon && <Icon className="size-3.5 shrink-0 text-[#c7f36b]" />}
+                                <span className="font-[family-name:var(--font-space-grotesk)] text-[12px] font-medium text-[#f3f4f6]">
+                                  {highlight.title}
+                                </span>
+                              </div>
+                              {highlight.description && (
+                                <p className="mt-1 m-0 text-[11px] leading-[1.6] text-[#9299a5]">
+                                  {highlight.description}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                  {technologies.length > 0 && (
+                    <div className="flex flex-wrap items-baseline gap-x-[14px] gap-y-[10px] border-t border-white/[0.08] pt-[14px]">
+                      <span className="font-[family-name:var(--font-jetbrains-mono)] text-[9px] uppercase text-[#c7f36b]">
+                        Built with
+                      </span>
+                      <div className="flex flex-wrap gap-[7px]" aria-label={`Technologies used for ${project.title}`}>
+                        {technologies.map((technology) => (
+                          <span
+                            className="border border-[#c7f36b]/[0.22] bg-[#c7f36b]/[0.055] px-[9px] py-[6px] font-[family-name:var(--font-jetbrains-mono)] text-[10px] text-[#d7e8b3]"
+                            key={technology}
+                          >
+                            {technology}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
         {secondaryProjects.length > 0 && (
           <details className="group mt-10">
@@ -57,16 +257,49 @@ export default function Projects() {
               <ChevronDown aria-hidden="true" />
             </summary>
             <div className="mt-[42px] grid grid-cols-3 border-t border-white/[0.08] max-[700px]:grid-cols-2 max-[420px]:grid-cols-1" aria-label="More projects">
-              {secondaryProjects.map((project) => (
-                <article className="min-w-0 border-b border-white/[0.08] py-[22px] pr-[22px] pl-0 nth-[3n+2]:border-l nth-[3n+2]:border-white/[0.08] nth-[3n+2]:pl-[22px] nth-[3n+3]:border-l nth-[3n+3]:border-white/[0.08] nth-[3n+3]:pl-[22px] max-[700px]:nth-[3n+2]:border-l-0 max-[700px]:nth-[3n+2]:pl-0 max-[700px]:nth-[3n+3]:border-l-0 max-[700px]:nth-[3n+3]:pl-0 max-[700px]:nth-[even]:border-l max-[700px]:nth-[even]:border-white/[0.08] max-[700px]:nth-[even]:pl-4 max-[420px]:px-0 max-[420px]:nth-[even]:border-l-0" key={project.title}>
-                  <div className="relative mb-4 aspect-[1.8] overflow-hidden border border-white/[0.08] bg-[#141820]">
-                    <Image src={project.image} alt={`${project.title} project screenshot`} fill sizes="(max-width: 700px) 50vw, 360px" className="object-cover transition-transform duration-500 hover:scale-[1.035]" />
-                  </div>
-                  <h3 className="mb-[9px] mt-0 font-[family-name:var(--font-space-grotesk)] text-lg">{project.title}</h3>
-                  <p className="m-0 line-clamp-3 text-xs leading-[1.7] text-[#9299a5]">{project.description}</p>
-                  <div className="mt-4 flex items-center justify-between gap-[10px]"><span className="font-[family-name:var(--font-jetbrains-mono)] text-[9px] text-[#c7f36b]">{project.tech.join(" · ")}</span><ProjectLinks githubLink={project.githubLink} liveLink={project.liveLink} /></div>
-                </article>
-              ))}
+              {secondaryProjects.map((project) => {
+                const imageSrc = project.coverImage || project.image || "";
+                const liveUrl = project.liveUrl ?? project.liveLink;
+                const githubUrl = project.githubUrl ?? project.githubLink;
+                const technologies = project.technologies ?? project.tech ?? [];
+
+                return (
+                  <article
+                    className="min-w-0 border-b border-white/[0.08] py-[22px] pr-[22px] pl-0 nth-[3n+2]:border-l nth-[3n+2]:border-white/[0.08] nth-[3n+2]:pl-[22px] nth-[3n+3]:border-l nth-[3n+3]:border-white/[0.08] nth-[3n+3]:pl-[22px] max-[700px]:nth-[3n+2]:border-l-0 max-[700px]:nth-[3n+2]:pl-0 max-[700px]:nth-[3n+3]:border-l-0 max-[700px]:nth-[3n+3]:pl-0 max-[700px]:nth-[even]:border-l max-[700px]:nth-[even]:border-white/[0.08] max-[700px]:nth-[even]:pl-4 max-[420px]:px-0 max-[420px]:nth-[even]:border-l-0"
+                    key={project.id || project.title}
+                  >
+                    <div className="relative mb-4 aspect-[1.8] overflow-hidden border border-white/[0.08] bg-[#141820]">
+                      {imageSrc && (
+                        <Image
+                          src={imageSrc}
+                          alt={`${project.title} project screenshot`}
+                          fill
+                          sizes="(max-width: 700px) 50vw, 360px"
+                          className="object-cover transition-transform duration-500 hover:scale-[1.035]"
+                        />
+                      )}
+                    </div>
+                    <h3 className="mb-[9px] mt-0 font-[family-name:var(--font-space-grotesk)] text-lg">
+                      {project.title}
+                    </h3>
+                    <p className="m-0 line-clamp-3 text-xs leading-[1.7] text-[#9299a5]">
+                      {project.description}
+                    </p>
+                    <div className="mt-4 flex items-center justify-between gap-[10px]">
+                      <span className="font-[family-name:var(--font-jetbrains-mono)] text-[9px] text-[#c7f36b]">
+                        {technologies.join(" · ")}
+                      </span>
+                      <ProjectLinks
+                        githubLink={githubUrl}
+                        liveLink={liveUrl}
+                        caseStudyUrl={project.caseStudyUrl}
+                        referenceLink={project.referenceLink}
+                        referenceLinkLabel={project.referenceLinkLabel}
+                      />
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </details>
         )}
